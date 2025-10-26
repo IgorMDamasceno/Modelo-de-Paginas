@@ -3,420 +3,491 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Convertida - HTML</title>
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    
-    <link rel="stylesheet" href="https://lazy.spun.com.br/buttons/css/main.css">
-    <link rel="stylesheet" href="https://lazy.spun.com.br/buttons/css/slick-theme.css">
-    <link rel="stylesheet" href="https://lazy.spun.com.br/buttons/css/slick.css">
-    
+    <title>Página Convertida - Modelo 3</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@500;600;700;800&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,600,0,0" />
+
     <style>
         :root {
-  --default-color: #0fa36b;
-}
+            color-scheme: light only;
+            --midnight-900: #030b24;
+            --midnight-800: #03163c;
+            --midnight-700: #08214f;
+            --cyan-500: #00c2ff;
+            --cyan-300: #5ae1ff;
+            --amber-400: #ffb757;
+            --white: #ffffff;
+        }
 
-    /* ===== Ajustes gerais ===== */
-    h1.entry-title {
-      display: none;
-    }
-    
-    h3.fw-bold {
-      margin-top: -38px;
-      font-size: 26px;
-      margin-bottom: 0px;
-    }
-    
-    h6.fw-normal {
-      margin-bottom: -6px !important;
-      font-size: 16px !important;
-      margin-top: 15px;
-    }
-    
-    p.small {
-      display: none;
-    }
-    
-    div.card-body {
-      padding: 6px !important;
-    }
-    
-    .asdasdas {
-      margin-top: -38px !important;
-    }
+        * {
+            box-sizing: border-box;
+        }
 
-    h2 {
-      font-size: 20px !important;
-    }
-    
-    .card-body.faq {
-      margin-top: -50px !important;
-    }
-    
-    .color-cyan {
-      color: var(--default-color);
-    }
-    
-    .container_lazy .asdasdas h2:before {
-      background: var(--default-color);
-    }
-    
-    .container_lazy .color-cyan {
-      color: var(--default-color);
-    }
+        body {
+            margin: 0;
+            font-family: 'Urbanist', 'Inter', system-ui, sans-serif;
+            background: linear-gradient(160deg, rgba(3, 11, 36, 0.92), rgba(3, 22, 60, 0.94)),
+                        radial-gradient(circle at bottom left, rgba(0, 194, 255, 0.25), transparent 60%),
+                        radial-gradient(circle at top right, rgba(255, 183, 87, 0.2), transparent 55%);
+            color: rgba(255, 255, 255, 0.94);
+        }
 
-    /* ===========================
-       BOTÃO — hover como padrão visual (sem aumentar tamanho)
-       + microinterações suaves
-       =========================== */
-    .super-botao {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    
-      width: 100%;
-      min-width: 280px;
-      margin: 10px auto !important;
-    
-      background: #ffffff;
-      color: #000000 !important;
-      padding: 12px 24px !important;
-      border-radius: 12px;
-      border: none;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      text-decoration: none !important;
-      cursor: pointer;
+        main {
+            min-height: 100vh;
+        }
 
-      /* Visual “hover” tornado padrão (sombra mais presente, ícone já deslocado via regra do ícone) */
-      box-shadow: 0 6px 16px rgba(0,0,0,.12) !important;
-      transform: none !important;
-    
-      transition: all .3s ease;
-      overflow: hidden;                 /* necessário pro ripple */
-      will-change: box-shadow, transform;
-    
-      /* Microinteração 1: sombra “respirando” bem de leve */
-      animation: softPulseShadow 1.6s ease-in-out infinite;
-    }
-    
-    @keyframes softPulseShadow {
-      0%, 100% { box-shadow: 0 6px 16px rgba(0,0,0,.12) }
-      50%      { box-shadow: 0 10px 22px rgba(0,0,0,.16) }
-    }
-    
-    /* Hover/focus: mantém o mesmo “feeling” e dá um lift sutil (não altera tamanho) */
-    .super-botao:hover,
-    .super-botao:focus {
-      box-shadow: 0 2px 14px rgba(0,0,0,.2) !important;
-      transform: translateY(-4px) !important; /* levanta um tiquinho (sem mudar largura/altura) */
-    }
-    
-    /* Active: sem “afundar”, mantém o layout de hover */
-    .super-botao:active {
-      box-shadow: 0 6px 16px rgba(0,0,0,.2) !important;
-      transform: translateY(-4px) !important;
-      transition: all .1s ease !important;
-    }
+        .shell {
+            width: min(100%, 760px);
+            margin: 0 auto;
+            padding: clamp(1.75rem, 6vw, 3.2rem) clamp(1.25rem, 6vw, 3rem) 4.2rem;
+        }
 
-    /* Ícone — já começa deslocado (mesmo look do hover) + Microinteração 2: “nudge” */
-    .super-botao .super-botao-icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform .3s ease;
-      transform: translateX(8px) !important;
-    
-      /* animação de empurrãozinho de tempos em tempos */
-      animation: nudge 2.8s ease-in-out infinite 1.2s;
-      will-change: transform;
-    }
-    
-    @keyframes nudge {
-      0%, 70%, 100% { transform: translateX(8px) }
-      80%           { transform: translateX(14px) }
-      90%           { transform: translateX(6px) }
-    }
-    
-    .super-botao .super-botao-icon .material-symbols-outlined {
-      font-size: 26px;
-      color: #000000;
-    }
-    
-    /* Em hover/focus não muda (mantém o padrão permanente) */
-    .super-botao:hover .super-botao-icon,
-    .super-botao:focus .super-botao-icon {
-      transform: translateX(8px) !important;
-    }
+        .hero {
+            display: grid;
+            gap: clamp(1.65rem, 5vw, 2.85rem);
+        }
 
-    /* Texto do botão */
-    .super-botao .super-botao-text {
-      font-family: 'Inter', sans-serif;
-      font-weight: 700;
-      line-height: 1.1;
-      font-size: clamp(14px, 2.8vw, 18px);
-      color: #000000;
-    }
-    
-    /* Microinteração 3: ripple suave no clique (sem JS) */
-    .super-botao::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      pointer-events: none;
-    
-      /* fallback do ripple (rgba) + usa var custom que podemos trocar por color-mix quando suportado) */
-      --btn-ripple: rgba(15, 163, 107, .18);
-      background: radial-gradient(circle at center, var(--btn-ripple) 0%, transparent 60%);
-      transform: scale(0);
-      opacity: 0;
-      transition: transform .35s ease, opacity .35s ease;
-    }
-    
-    .super-botao:active::after {
-      transform: scale(1.2);
-      opacity: 1;
-      transition: transform .08s ease, opacity .20s ease;
-    }
+        .hero-header {
+            display: grid;
+            gap: 0.75rem;
+        }
 
-    /* Se o navegador suportar color-mix/oklab, usa a cor base como ripple automaticamente */
-    @supports (color: oklab(0% 0 0)) {
-      .super-botao::after {
-        --btn-ripple: color-mix(in oklab, var(--default-color) 26%, transparent);
-      }
-    }
-    
-    /* Acessibilidade: foco visível sem “pular” layout */
-    .super-botao:focus-visible {
-      outline: 2px solid var(--default-color);
-      outline-offset: 2px;
-    }
-    
-    /* Usuários com redução de movimento */
-    @media (prefers-reduced-motion: reduce) {
-      .super-botao,
-      .super-botao .super-botao-icon {
-        animation: none !important;
-      }
-      .super-botao,
-      .super-botao::after {
-        transition: none !important;
-      }
-    }
-    
-    /* ===== Sublinhado contínuo, centrado e mais “premium” ===== */
-h6.fw-normal.text-center{
-  position: relative;
-  display: block;                 /* ocupa a linha toda */
-  width: max-content;             /* largura exatamente do texto */
-  margin: 0 auto 10px;            /* centraliza no container */
-  padding-bottom: 1px;           /* espaço pro underline */
-  text-align: center;             /* garante centralização do texto */
-}
+        .hero-badge {
+            justify-self: start;
+            padding: 0.4rem 0.9rem;
+            border-radius: 999px;
+            background: rgba(0, 194, 255, 0.18);
+            color: var(--cyan-300);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-size: 0.78rem;
+            font-weight: 600;
+        }
 
-/* linha base suave (estática) — dá “corpo” ao underline */
-h6.fw-normal.text-center::after{
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -4px;
-  transform: translateX(-50%);
-  width: 82%;                     /* ajuste fino do comprimento */
-  height: 2px;
-  border-radius: 2px;
-  background: linear-gradient(90deg,
-    transparent 0%,
-    rgba(0,0,0,.06) 12%,
-    var(--default-color) 50%,
-    rgba(0,0,0,.06) 88%,
-    transparent 100%);
-  opacity: .55;
-}
+        .hero-title {
+            margin: 0;
+            font-size: clamp(2rem, 7vw, 2.8rem);
+            font-weight: 800;
+            line-height: 1.1;
+            text-wrap: balance;
+        }
 
-/* cápsula animada no centro (expande e “brilha” continuamente) */
-h6.fw-normal.text-center::before{
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -4px;
-  transform: translateX(-50%) scaleX(.35);
-  transform-origin: center;
-  width: 72%;
-  height: 2px;
-  border-radius: 2px;
+        .hero-lede {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 1rem;
+            line-height: 1.5;
+        }
 
-  /* fallback de cor + degrade com brilho central */
-  --u-line: rgba(15,163,107,.85);
-  background: linear-gradient(90deg,
-    transparent 0%,
-    var(--u-line) 35%,
-    #fff 50%,
-    var(--u-line) 65%,
-    transparent 100%);
-  background-size: 200% 100%;
+        .hero-ad {
+            background: rgba(3, 11, 36, 0.72);
+            border-radius: 1.5rem;
+            border: 1px solid rgba(0, 194, 255, 0.28);
+            padding: 1rem;
+            display: grid;
+            gap: 0.8rem;
+            box-shadow: 0 24px 46px -32px rgba(0, 194, 255, 0.4);
+        }
 
-  /* 1) pulsa largura (centro)  2) brilho corre em loop */
-  animation: uWidthPulse 3.6s ease-in-out infinite,
-             uShimmer    3.6s linear       infinite;
-  opacity: .95;
-}
+        .hero-ad-warning {
+            border-radius: 1.1rem;
+            padding: 0.8rem 1rem;
+            background: rgba(255, 111, 97, 0.2);
+            border: 1px solid rgba(255, 111, 97, 0.38);
+            font-size: 0.88rem;
+            font-weight: 600;
+            text-align: center;
+            color: #ffd4ce;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
 
-/* usa color-mix quando disponível pra casar com sua cor-base */
-@supports (color: oklab(0% 0 0)){
-  h6.fw-normal.text-center::before{
-    --u-line: color-mix(in oklab, var(--default-color) 90%, black 10%);
-  }
-}
+        .hero-subtitle {
+            margin: 0;
+            text-align: center;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.82);
+        }
 
-/* pulsa do centro sem “trancos” */
-@keyframes uWidthPulse{
-  0%,100% { transform: translateX(-50%) scaleX(.35); opacity: .9; }
-  50%     { transform: translateX(-50%) scaleX(1);    opacity: 1;  }
-}
+        .hero-subtitle b {
+            color: var(--white);
+        }
 
-/* brilho deslizando continuamente */
-@keyframes uShimmer{
-  0%   { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
-}
+        .cta-stack {
+            display: grid;
+            gap: 0.85rem;
+        }
 
-/* movimento reduzido: mantém underline fixo e legível */
-@media (prefers-reduced-motion: reduce){
-  h6.fw-normal.text-center::before{
-    animation: none !important;
-    transform: translateX(-50%) scaleX(1);
-    background-position: 0 0;
-  }
-}
+        .cta-label {
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.78rem;
+            justify-self: center;
+            color: rgba(255, 255, 255, 0.65);
+        }
 
+        .super-botao {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 0.65rem;
+            align-items: center;
+            padding: 1rem 1.1rem;
+            border-radius: 1rem;
+            background: linear-gradient(135deg, rgba(0, 194, 255, 0.15), rgba(0, 194, 255, 0.55));
+            border: 1px solid rgba(90, 225, 255, 0.4);
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            box-shadow: 0 20px 40px -28px rgba(0, 194, 255, 0.55);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-    
+        .super-botao::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.45) 55%, transparent 70%);
+            transform: translateX(-120%);
+            transition: transform 0.6s ease;
+        }
+
+        .super-botao:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 26px 48px -30px rgba(0, 194, 255, 0.65);
+        }
+
+        .super-botao:hover::after {
+            transform: translateX(120%);
+        }
+
+        .super-botao-text {
+            font-size: clamp(0.9rem, 3.5vw, 1rem);
+            line-height: 1.3;
+        }
+
+        .super-botao-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 999px;
+            background: rgba(255, 183, 87, 0.28);
+            display: grid;
+            place-items: center;
+            color: var(--amber-400);
+            font-size: 1.7rem;
+        }
+
+        .hero-perks {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 0.85rem;
+        }
+
+        .hero-perk {
+            background: rgba(8, 33, 79, 0.6);
+            border-radius: 1rem;
+            padding: 0.9rem;
+            display: grid;
+            gap: 0.35rem;
+            border: 1px solid rgba(0, 194, 255, 0.22);
+        }
+
+        .hero-perk strong {
+            font-size: 1.1rem;
+            color: var(--cyan-300);
+        }
+
+        section.content-block {
+            margin-top: clamp(2.6rem, 8vw, 4.2rem);
+            background: rgba(3, 11, 36, 0.72);
+            border-radius: 1.6rem;
+            border: 1px solid rgba(0, 194, 255, 0.18);
+            padding: clamp(1.8rem, 5vw, 2.8rem);
+            display: grid;
+            gap: 1.2rem;
+            box-shadow: 0 26px 52px -36px rgba(0, 0, 0, 0.7);
+        }
+
+        section.content-block h2 {
+            margin: 0;
+            font-size: 1.45rem;
+            font-weight: 700;
+        }
+
+        section.content-block p {
+            margin: 0;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .timeline {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .timeline-step {
+            display: grid;
+            gap: 0.3rem;
+            background: rgba(0, 194, 255, 0.16);
+            border-radius: 1.1rem;
+            padding: 0.95rem;
+            border: 1px solid rgba(0, 194, 255, 0.24);
+        }
+
+        .timeline-step strong {
+            color: var(--cyan-300);
+            font-size: 1.05rem;
+        }
+
+        .faq-block {
+            margin-top: clamp(2.8rem, 8vw, 4.2rem);
+        }
+
+        .faq-block h2 {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.6rem;
+        }
+
+        .faq ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            gap: 0.9rem;
+        }
+
+        .faq ul li {
+            position: relative;
+            background: rgba(8, 33, 79, 0.7);
+            border-radius: 1.1rem;
+            border: 1px solid rgba(0, 194, 255, 0.28);
+            padding: 1.1rem 1rem 1.1rem;
+            display: grid;
+            gap: 0.55rem;
+        }
+
+        .faq ul li input {
+            display: none;
+        }
+
+        .faq ul li h2 {
+            margin: 0;
+            font-size: 1rem;
+            cursor: pointer;
+            padding-right: 2.6rem;
+        }
+
+        .faq ul li p {
+            margin: 0;
+            display: none;
+            color: rgba(255, 255, 255, 0.78);
+            line-height: 1.55;
+        }
+
+        .faq ul li i {
+            position: absolute;
+            right: 1rem;
+            top: 1.1rem;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 999px;
+            background: rgba(0, 194, 255, 0.3);
+        }
+
+        .faq ul li i::before,
+        .faq ul li i::after {
+            content: "";
+            position: absolute;
+            background: var(--amber-400);
+            border-radius: 999px;
+        }
+
+        .faq ul li i::before {
+            inset: 50% 0.5rem 0.5rem 0.5rem;
+            transform: translateY(-50%);
+            height: 0.12rem;
+        }
+
+        .faq ul li i::after {
+            inset: 0.5rem 50% 0.5rem;
+            transform: translateX(-50%);
+            width: 0.12rem;
+            transition: opacity 0.3s ease;
+        }
+
+        .faq ul li input:checked ~ p {
+            display: block;
+        }
+
+        .faq ul li input:checked ~ i::after {
+            opacity: 0;
+        }
+
+        .secondary-cta {
+            margin-top: clamp(3rem, 8vw, 4.5rem);
+            display: grid;
+            gap: 1.4rem;
+            text-align: center;
+        }
+
+        .secondary-cta p {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.55;
+        }
+
+        .secondary-cta small {
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        @media (min-width: 720px) {
+            .hero {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
     </style>
-
 </head>
 <body>
-    <div class="container_lazy">
-        <div class="container-full my-5">          
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-8 col-lg-10 col-12 mx-auto">
-                        <h3 class="fw-bold color-cyan text-center">
-                            Your new card
-                        </h3>
-                        <div id="netdinheiro_top"></div>
-                        
-                        <h6 class="fw-normal text-center">
-                            We recommend these cards:
-                        </h6>
+    <main>
+        <div class="shell">
+            <section class="hero">
+                <div class="hero-header">
+                    <span class="hero-badge">Passo decisivo</span>
+                    <h1 class="hero-title">Desbloqueie agora cartões com benefícios digitais para usar hoje mesmo</h1>
+                    <p class="hero-lede">Tudo foi desenhado para quem acessa pelo celular: fluxos rápidos, botões grandes e linguagem direta. Role para evitar o anúncio e seguir apenas nas ofertas seguras.</p>
+                </div>
 
-                        <p class="small text-center mt-1" style='font-size: 9px;'>By: <b>Universo Apps</b></p>
+                <div class="hero-ad" aria-label="Espaço reservado para anúncio">
+                    <p class="hero-ad-warning">Não clique no anúncio abaixo – continue para liberar os cartões oficiais</p>
+                    <div id="netdinheiro_top"></div>
+                </div>
+
+                <h6 class="fw-normal text-center hero-subtitle">
+                    Nesta área aparecerão as indicações adaptadas ao seu histórico.
+                </h6>
+
+                <div class="cta-stack">
+                    <span class="cta-label">Escolha uma oferta verificada</span>
+                    <a href="https://us.creativepulse23.com/chime-visa-debit-card-online-p2/" class="super-botao">
+                        <span class="super-botao-text">Quero um cartão sem anuidade para começar agora</span>
+                        <span class="super-botao-icon">
+                            <span class="material-symbols-outlined">chevron_right</span>
+                        </span>
+                    </a>
+                    <a href="https://us.creativepulse23.com/chase-sapphire-preferred-credit-card-p2/" class="super-botao">
+                        <span class="super-botao-text">Busco pontos premium e benefícios em viagens</span>
+                        <span class="super-botao-icon">
+                            <span class="material-symbols-outlined">loyalty</span>
+                        </span>
+                    </a>
+                    <a href="https://us.creativepulse23.com/u-s-bank-shield-visa-card-p2/" class="super-botao">
+                        <span class="super-botao-text">Preciso de proteção para celular e compras online</span>
+                        <span class="super-botao-icon">
+                            <span class="material-symbols-outlined">shield_person</span>
+                        </span>
+                    </a>
+                </div>
+
+                <div class="hero-perks">
+                    <div class="hero-perk">
+                        <strong>Uso instantâneo</strong>
+                        Cartão virtual liberado em minutos após a aprovação.
+                    </div>
+                    <div class="hero-perk">
+                        <strong>Controle no app</strong>
+                        Ajuste limites, acompanhe gastos e receba alertas no celular.
+                    </div>
+                    <div class="hero-perk">
+                        <strong>Bônus garantidos</strong>
+                        Receba recompensas ao completar as etapas iniciais.
                     </div>
                 </div>
-                
-                <div class="row my-3">
-                    <div class="col-lg-6 col-md-9 col-12 mx-auto">
-                        <div class="card border-0 px-2 rounded text-decoration-none">
-                            <div class="card-body">
-                                <a href="https://us.netdinheiro.com.br/chime-visa-debit-card-p2/" class="super-botao">
-                                    <span class="super-botao-text">CREDIT CARD WITH $1,000</span>
-                                    <span class="super-botao-icon">
-                                        <span class="material-symbols-outlined">arrow_circle_right</span>
-                                    </span>
-                                </a>
-                                
-                                <a href="https://us.netdinheiro.com.br/chase-sapphire-preferred-credit-card-new-p2/" class="super-botao">
-                                    <span class="super-botao-text">CREDIT CARD WITH $2,000</span>
-                                    <span class="super-botao-icon">
-                                        <span class="material-symbols-outlined">arrow_circle_right</span>
-                                    </span>
-                                </a>
-                                
-                                <a href="https://us.netdinheiro.com.br/u-s-bank-shield-visa-card-p2/" class="super-botao">
-                                    <span class="super-botao-text">CREDIT CARD WITH $3,000</span>
-                                    <span class="super-botao-icon">
-                                        <span class="material-symbols-outlined">arrow_circle_right</span>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
+            </section>
+
+            <section class="content-block" id="secao1">
+                <h2>Planejado para manter você longe de anúncios e perto do que importa</h2>
+                <p>
+                    Criamos uma experiência enxuta para quem acessa pelo smartphone. Nas primeiras dobras da tela você encontra todas as informações relevantes, sem ruídos. Escolha um cartão, siga o fluxo guiado e use os benefícios ainda hoje.
+                </p>
+                <div class="timeline">
+                    <div class="timeline-step">
+                        <strong>Confirme seu objetivo</strong>
+                        Diga se busca limite, bônus ou benefícios digitais para ajustar as sugestões.
+                    </div>
+                    <div class="timeline-step">
+                        <strong>Complete a proposta</strong>
+                        Formulários intuitivos, com menos campos e dicas a cada passo.
+                    </div>
+                    <div class="timeline-step">
+                        <strong>Ative os benefícios</strong>
+                        Receba instruções no e-mail e no app para desbloquear bônus e limites adicionais.
                     </div>
                 </div>
-                
-               <div class="row mt-5" id="secao1">
-              <div class="col-xl-8 col-lg-10 col-12 mx-auto asdasdas" align="justify">
-                <h2>Meet your new card</h2>
-                <p class="roboto mt-3"> Get 0% intro APR for 21 months—make purchases or transfer balances without interest. Take
-                  the first step toward more financial flexibility today. </p>
-                <div class="col-12 col-md-6 mx-auto"> <a href="https://us.netdinheiro.com.br/discover-it-secured-credit-card-p2/"
-                    class="super-botao"> <span class="super-botao-text">SHOW ME ANOTHER</span> <span class="super-botao-icon"> <span
-                        class="material-symbols-outlined">arrow_circle_right</span> </span> </a> </div>
-              </div>
-            </div>
-            <div class="row mt-5" id="faq">
-              <div class="col-lg-8 col-md-9 col-12 mx-auto">
-                <div class="card-body faq">
-                  <ul>
-                    <li> <input type="checkbox" checked> <i></i>
-                      <h2>How long is the 0% intro APR?</h2>
-                      <p>It lasts a full 21 months, giving you extended time to manage balances without interest charges.</p>
-                    </li>
-                    <li> <input type="checkbox"> <i></i>
-                      <h2>Is there an annual fee?</h2>
-                      <p>No—there’s no annual fee. We aim to keep your costs low while helping you reach your money goals.</p>
-                    </li>
-                    <li> <input type="checkbox"> <i></i>
-                      <h2>What’s included with cell phone protection?</h2>
-                      <p>Coverage can help with accidental damage to your device, offering added reassurance for everyday use.</p>
-                    </li>
-                    <li> <input type="checkbox"> <i></i>
-                      <h2>How do I apply?</h2>
-                      <p>The process is quick and straightforward. Follow the guided steps to submit your application right away.
-                      </p>
-                    </li>
-                    <li> <input type="checkbox"> <i></i>
-                      <h2>How can I get personalized offers?</h2>
-                      <p>Access tailored deals based on your spending habits to maximize value on every purchase.</p>
-                    </li>
-                  </ul>
+            </section>
+
+            <section class="faq-block" id="faq">
+                <h2>Respostas rápidas</h2>
+                <div class="faq">
+                    <ul>
+                        <li>
+                            <input type="checkbox" id="faq3-1" checked>
+                            <i></i>
+                            <h2>Por que evitar o anúncio?</h2>
+                            <p>Ele não faz parte do fluxo verificado. Nossa recomendação é seguir apenas pelos botões destacados acima.</p>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="faq3-2">
+                            <i></i>
+                            <h2>Consigo finalizar tudo pelo celular?</h2>
+                            <p>Sim. O processo completo foi otimizado para telas pequenas, com textos curtos e botões grandes.</p>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="faq3-3">
+                            <i></i>
+                            <h2>As ofertas expiram?</h2>
+                            <p>Algumas promoções possuem vagas limitadas. Por isso recomendamos concluir ainda hoje para garantir.</p>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="faq3-4">
+                            <i></i>
+                            <h2>Posso mudar de cartão depois?</h2>
+                            <p>Pode sim. Após finalizar a primeira oferta, você recebe outras indicações compatíveis com o seu perfil.</p>
+                        </li>
+                    </ul>
                 </div>
-              </div>
-            </div>
-            <div class="row mt-5" id="secao2">
-              <div class="col-xl-8 col-lg-10 col-12 mx-auto asdasdas" align="justify">
-                <h2>Take control of your finances—apply today and feel the difference</h2>
-                <p class="roboto mt-3"> Unlock more flexibility and confidence with this card. Start your application now and
-                  experience the benefits for yourself. </p>
-                <div class="col-12 col-md-6 mx-auto"> <a href="https://us.netdinheiro.com.br/wells-fargo-active-cash-card-p2/"
-                    class="super-botao"> <span class="super-botao-text">LEARN MORE ABOUT THE CARD</span> <span
-                      class="super-botao-icon"> <span class="material-symbols-outlined">arrow_circle_right</span> </span> </a>
-                </div>
-              </div>
-            </div>
-            </div>
+            </section>
+
+            <section class="secondary-cta" id="secao2">
+                <small>Último passo</small>
+                <p>Escolha uma das opções oficiais para liberar seu novo cartão digital e começar a usar ainda hoje.</p>
+                <a href="https://us.creativepulse23.com/wells-fargo-active-cash-card-p2/" class="super-botao">
+                    <span class="super-botao-text">Seguir para ativar meu cartão agora</span>
+                    <span class="super-botao-icon">
+                        <span class="material-symbols-outlined">rocket_launch</span>
+                    </span>
+                </a>
+            </section>
         </div>
-    </div>
+    </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-    
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // FAQ Interactivity
             const faqItems = document.querySelectorAll('.faq ul li');
-            
+
             faqItems.forEach(function(item) {
                 const checkbox = item.querySelector('input[type="checkbox"]');
                 const title = item.querySelector('h2');
                 const icon = item.querySelector('i');
-                
+
                 [title, icon].forEach(function(element) {
                     if (element) {
                         element.addEventListener('click', function() {
@@ -425,15 +496,14 @@ h6.fw-normal.text-center::before{
                     }
                 });
             });
-            
-            // Smooth scroll for anchor links
+
             const anchorLinks = document.querySelectorAll('a[href^="#"]');
             anchorLinks.forEach(function(link) {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
                     const targetId = this.getAttribute('href').substring(1);
                     const targetElement = document.getElementById(targetId);
-                    
+
                     if (targetElement) {
                         targetElement.scrollIntoView({
                             behavior: 'smooth',
@@ -443,81 +513,113 @@ h6.fw-normal.text-center::before{
                 });
             });
 
-            // --- INÍCIO DO CÓDIGO DE LÓGICA DA URL ---
+            function getParam(key) {
+                const p = new URLSearchParams(window.location.search);
+                const v = p.get(key);
+                return v ? v.trim() : null;
+            }
 
-            /**
-             * Pega o parâmetro 'refer' da URL e extrai um nome de marca limpo.
-             */
+            function toTitleCaseSmart(str) {
+                return str
+                  .replace(/\s+/g, ' ')
+                  .trim()
+                  .split(' ')
+                  .filter(Boolean)
+                  .map(word => word
+                    .split('-')
+                    .map(part => part
+                      .split("'")
+                      .map(seg => seg ? seg.charAt(0).toUpperCase() + seg.slice(1).toLowerCase() : seg)
+                      .join("'")
+                    )
+                    .join('-')
+                  )
+                  .join(' ');
+            }
+
+            function sanitizeName(raw, maxLen = 60) {
+                if (!raw) return null;
+                const cleaned = raw
+                  .replace(/[^\p{L}0-9 .'\-]/gu, '')
+                  .replace(/\s+/g, ' ')
+                  .trim()
+                  .slice(0, maxLen);
+                if (!cleaned) return null;
+                return toTitleCaseSmart(cleaned);
+            }
+
             function getReferBrand() {
-                const params = new URLSearchParams(window.location.search);
-                let raw = params.get('refer');
-
+                let raw = getParam('refer');
                 if (!raw) return null;
                 raw = raw.trim();
 
-                let host;
-                if (raw.toLowerCase().startsWith('http://') || raw.toLowerCase().startsWith('https://')) {
-                    try {
-                        host = new URL(raw).hostname;
-                    } catch (e) {
-                        host = raw.replace(/^(https?:\/\/)/, '');
-                    }
+                let hostOrName = raw;
+                if (/^https?:\/\//i.test(raw)) {
+                  try { hostOrName = new URL(raw).hostname; }
+                  catch { hostOrName = raw.replace(/^(https?:\/\/)/i, ''); }
+                }
+
+                hostOrName = hostOrName.replace(/^www\./i, '').trim();
+
+                let core = hostOrName;
+                if (/^[a-z0-9.-]+$/i.test(hostOrName) && hostOrName.includes('.')) {
+                  const labels = hostOrName.toLowerCase().split('.').filter(Boolean);
+                  const tld2 = new Set(['com.br','net.br','org.br','gov.br','edu.br']);
+                  const tld1 = new Set(['com','net','org','br','io','co','us','uk','de','es','pt']);
+                  if (labels.length >= 2) {
+                    const last = labels[labels.length - 1];
+                    const last2 = labels[labels.length - 2] + '.' + last;
+                    if (tld2.has(last2)) { labels.pop(); labels.pop(); }
+                    else if (tld1.has(last)) { labels.pop(); }
+                    core = labels.length ? labels[labels.length - 1] : hostOrName;
+                  }
+                }
+
+                core = core.replace(/[^\p{L}0-9 .'\-]/gu, ' ').replace(/\s+/g, ' ').trim();
+                return core ? toTitleCaseSmart(core) : null;
+            }
+
+            function brandPossessive(brand) {
+                if (!brand) return null;
+                return /s$/i.test(brand) ? (brand + '’') : (brand + '’s');
+            }
+
+            (function renderSubtitle() {
+                const target = document.querySelector('h6.fw-normal.text-center');
+                if (!target) return;
+
+                const brand = getReferBrand();
+                const rawName = getParam('name');
+                const safeName = sanitizeName(rawName);
+
+                const hasName = !!safeName;
+                const hasBrand = !!brand;
+
+                target.textContent = '';
+
+                if (hasName) {
+                  const nameEl = document.createElement('b');
+                  nameEl.textContent = safeName;
+                  target.appendChild(nameEl);
+                  target.append(', estas são as ofertas confirmadas pela ');
                 } else {
-                    host = raw.replace(/[^a-z0-9.-]/gi, '');
+                  target.append('Estas são as ofertas confirmadas pela ');
                 }
 
-                if (!host) return null;
-
-                host = host.replace(/^www\./i, '');
-                let labels = host.toLowerCase().split('.');
-                const tld_2parts = ['com.br', 'net.br', 'org.br'];
-                const tld_1part = ['com', 'net', 'org', 'br'];
-
-                if (labels.length >= 2) {
-                    const end2 = labels[labels.length - 2] + '.' + labels[labels.length - 1];
-                    if (tld_2parts.includes(end2)) {
-                        labels.pop();
-                        labels.pop();
-                    } else if (tld_1part.includes(labels[labels.length - 1])) {
-                        labels.pop();
-                    }
-                } else if (labels.length === 1 && tld_1part.includes(labels[0])) {
-                    labels.pop();
+                if (hasBrand) {
+                  const possessive = brandPossessive(brand);
+                  if (!hasName) {
+                    const bBrand = document.createElement('b');
+                    bBrand.textContent = possessive;
+                    target.appendChild(bBrand);
+                    target.append(' ');
+                  } else {
+                    target.append(possessive + ' ');
+                  }
                 }
 
-                if (labels.length === 0) return null;
-                labels[labels.length - 1] = labels[labels.length - 1].replace(/\d+$/, '');
-                labels = labels.filter(l => l !== '');
-                if (labels.length === 0) return null;
-                let brand = labels.join('.').replace(/[^a-z0-9.-]/gi, '');
-                return brand || null;
-            }
-
-            const brandName = getReferBrand();
-
-            if (brandName) {
-                // Encontra o elemento h6 alvo
-                const targetElement = document.querySelector('h6.fw-normal.text-center');
-                
-                if (targetElement) {
-                    // Capitaliza a primeira letra do nome da marca
-                    const capitalizedBrandName = brandName.charAt(0).toUpperCase() + brandName.slice(1);
-
-                    // Cria o elemento <b> para a marca de forma segura
-                    const brandElement = document.createElement('b');
-                    brandElement.textContent = capitalizedBrandName;
-                    
-                    // Pega o texto que já existe no h6
-                    const existingText = targetElement.textContent;
-                    
-                    // Limpa o h6 e insere o nome da marca antes do texto original
-                    targetElement.innerHTML = ''; // Limpa o conteúdo
-                    targetElement.appendChild(brandElement);
-                    targetElement.append(` ${existingText}`); // Adiciona o texto original depois
-                }
-            }
-
-            // --- FIM DO CÓDIGO DE LÓGICA DA URL ---
+                target.append('para você aproveitar hoje:');
+            })();
         });
     </script>
 </body>
