@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seleção de Cartões Inteligentes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #0c1015;
+      --gradient-1: #13c29f;
+      --gradient-2: #08795b;
+      --text-strong: #0c1015;
+      --text-muted: rgba(12, 16, 21, 0.72);
+      --surface: #ffffff;
+      --surface-muted: rgba(255, 255, 255, 0.08);
+      --accent: #ffd166;
+      --alert: #ff4d67;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text-strong);
+    }
+
+    .page {
+      min-height: 100vh;
+      background: linear-gradient(160deg, rgba(19, 194, 159, 0.18) 0%, rgba(12, 16, 21, 0.9) 40%, rgba(8, 121, 91, 0.82) 100%);
+      padding: clamp(18px, 4vw, 36px) clamp(14px, 4vw, 30px) 96px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: clamp(20px, 5vw, 42px);
+      position: relative;
+    }
+
+    header.hero {
+      width: min(520px, 100%);
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 28px;
+      padding: clamp(18px, 5vw, 28px);
+      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.24);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header.hero::before {
+      content: "";
+      position: absolute;
+      inset: -40% -10% auto auto;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle at center, rgba(19, 194, 159, 0.35) 0%, transparent 75%);
+      z-index: 0;
+    }
+
+    header.hero .eyebrow {
+      font-size: clamp(0.72rem, 2.6vw, 0.9rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--gradient-2);
+    }
+
+    header.hero h1 {
+      margin: 8px 0 16px;
+      font-size: clamp(1.9rem, 8vw, 2.6rem);
+      line-height: 1.08;
+      font-weight: 900;
+      color: var(--text-strong);
+    }
+
+    .ad-warning {
+      position: relative;
+      border-radius: 18px;
+      padding: 14px 18px 12px;
+      background: rgba(255, 77, 103, 0.12);
+      color: var(--alert);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      box-shadow: inset 0 0 0 1.5px rgba(255, 77, 103, 0.2);
+    }
+
+    .ad-warning span.icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--alert);
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+
+    .ad-slot {
+      min-height: 120px;
+      border-radius: 16px;
+      border: 1.8px dashed rgba(12, 16, 21, 0.16);
+      background: rgba(255, 255, 255, 0.75);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      color: rgba(12, 16, 21, 0.56);
+      margin: 0 0 12px;
+      overflow: hidden;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 3.9vw, 1.15rem);
+      line-height: 1.5;
+      color: rgba(12, 16, 21, 0.78);
+      margin-top: 6px;
+    }
+
+    .cta-stack {
+      margin-top: 18px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .primary-cta {
+      --pulse-color: rgba(255, 209, 102, 0.55);
+      text-decoration: none;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+      color: #fff;
+      font-weight: 800;
+      font-size: clamp(1.05rem, 4.6vw, 1.28rem);
+      letter-spacing: 0.02em;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 18px 40px rgba(11, 87, 66, 0.45);
+      isolation: isolate;
+    }
+
+    .primary-cta::after {
+      content: "";
+      position: absolute;
+      inset: -140% -40% auto;
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle at center, var(--pulse-color) 0%, transparent 70%);
+      animation: pulse 3.6s infinite;
+      opacity: 0.85;
+      z-index: -1;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(0.6); opacity: 0.85; }
+      40% { transform: scale(1); opacity: 0.3; }
+      70% { transform: scale(0.9); opacity: 0.6; }
+    }
+
+    .primary-cta span.icon {
+      font-size: 1.4rem;
+      font-weight: 900;
+      display: inline-flex;
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.14);
+      align-items: center;
+      justify-content: center;
+      border: 1.4px solid rgba(255, 255, 255, 0.35);
+    }
+
+    .secondary-actions {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+    }
+
+    .secondary-actions button {
+      padding: 10px 16px;
+      border-radius: 14px;
+      border: none;
+      font-weight: 700;
+      background: rgba(8, 121, 91, 0.12);
+      color: var(--gradient-2);
+    }
+
+    .benefits-card {
+      width: min(520px, 100%);
+      background: rgba(255, 255, 255, 0.88);
+      border-radius: 26px;
+      padding: clamp(20px, 5vw, 28px);
+      display: grid;
+      gap: 18px;
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.26);
+    }
+
+    .benefits-card h2 {
+      font-size: clamp(1.3rem, 5vw, 1.55rem);
+      margin: 0;
+      color: var(--text-strong);
+    }
+
+    .benefits-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .benefit-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(19, 194, 159, 0.12);
+      border: 1.5px solid rgba(8, 121, 91, 0.15);
+    }
+
+    .benefit-item .icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: rgba(8, 121, 91, 0.18);
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      color: var(--gradient-2);
+    }
+
+    .benefit-item strong {
+      display: block;
+      font-size: 1.02rem;
+      margin-bottom: 4px;
+    }
+
+    .steps {
+      width: min(520px, 100%);
+      color: #fff;
+      display: grid;
+      gap: 18px;
+    }
+
+    .steps h3 {
+      margin: 0;
+      font-size: clamp(1.18rem, 5vw, 1.4rem);
+      font-weight: 800;
+    }
+
+    .step-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 14px;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 18px;
+      padding: 12px 16px;
+      border: 1.2px solid rgba(255, 255, 255, 0.22);
+    }
+
+    .step-number {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.18);
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+
+    .bottom-bar {
+      position: fixed;
+      inset: auto 0 0;
+      padding: 12px 16px 18px;
+      background: linear-gradient(180deg, rgba(12, 16, 21, 0) 0%, rgba(12, 16, 21, 0.85) 35%, rgba(12, 16, 21, 0.95) 100%);
+      display: flex;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .bottom-bar .primary-cta {
+      width: min(560px, 100%);
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.45);
+    }
+
+    @media (min-width: 768px) {
+      body {
+        display: flex;
+        justify-content: center;
+        background: radial-gradient(circle at top, rgba(19, 194, 159, 0.25) 0%, rgba(12, 16, 21, 0.92) 55%);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <div class="eyebrow">Seus próximos cartões</div>
+      <h1>Compare agora e desbloqueie limites que acompanham seu ritmo</h1>
+
+      <div class="ad-warning">
+        <span class="icon">!</span>
+        Ignore o anúncio abaixo — ele não faz parte das nossas ofertas exclusivas.
+      </div>
+
+      <div class="ad-slot" aria-label="Espaço reservado para anúncio">
+        <div id="uscreativepulse23_top"></div>
+      </div>
+
+      <p class="hero-subtitle">
+        Nossos especialistas filtraram benefícios reais para que você escolha um cartão que aprove cashback, anuidade zero e aprovação rápida ainda hoje.
+      </p>
+
+      <div class="cta-stack">
+        <a class="primary-cta" href="#ofertas">
+          Quero ver as ofertas agora
+          <span class="icon">›</span>
+        </a>
+        <div class="secondary-actions">
+          <button type="button">Filtrar por renda</button>
+          <button type="button">Ver análises</button>
+        </div>
+      </div>
+    </header>
+
+    <section id="ofertas" class="benefits-card">
+      <h2>Por que essas ofertas foram selecionadas para você</h2>
+      <div class="benefits-grid">
+        <div class="benefit-item">
+          <div class="icon">1</div>
+          <div>
+            <strong>Limites dinâmicos</strong>
+            Selecionamos emissores que avaliam seu histórico em minutos e permitem subir o limite logo nas primeiras faturas.
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div class="icon">2</div>
+          <div>
+            <strong>Zero pegadinhas</strong>
+            Transparência total: avisamos onde há anuidade, taxas ou exigência mínima de renda antes de você aplicar.
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div class="icon">3</div>
+          <div>
+            <strong>Bônus de boas-vindas</strong>
+            Cartões com cashback turbinado e milhas extras nos primeiros 3 meses para acelerar resultados.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="steps">
+      <h3>Como garantir o cartão certo em 3 passos rápidos</h3>
+      <div class="step-list">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div>
+            <strong>Confira o radar de aprovação</strong>
+            Veja o termômetro de aprovação antes de clicar: verde significa alta chance e atualização a cada hora.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div>
+            <strong>Simule benefícios</strong>
+            Ajuste seu gasto mensal e descubra automaticamente quanto de cashback ou pontos você acumula.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div>
+            <strong>Escolha e aplique</strong>
+            Clique em “Quero ver as ofertas” para acessar as opções mais compatíveis e enviar sua solicitação segura.
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="bottom-bar">
+    <a class="primary-cta" href="#ofertas">
+      Ver cartões recomendados
+      <span class="icon">›</span>
+    </a>
+  </div>
+</body>
+</html>
