@@ -1,524 +1,351 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Convertida - HTML</title>
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    
-    <link rel="stylesheet" href="https://lazy.spun.com.br/buttons/css/main.css">
-    <link rel="stylesheet" href="https://lazy.spun.com.br/buttons/css/slick-theme.css">
-    <link rel="stylesheet" href="https://lazy.spun.com.br/buttons/css/slick.css">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modelo 3 - Ação Imediata</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
     <style>
         :root {
-  --default-color: #0fa36b;
-}
+            --bg: #050606;
+            --surface: #101213;
+            --surface-strong: #16191a;
+            --accent: #4ade80;
+            --accent-strong: #22c55e;
+            --alert: #f87171;
+            --text: #f8fafc;
+            --text-soft: rgba(248, 250, 252, 0.64);
+            --border: rgba(255, 255, 255, 0.06);
+        }
 
-    /* ===== Ajustes gerais ===== */
-    h1.entry-title {
-      display: none;
-    }
-    
-    h3.fw-bold {
-      margin-top: -38px;
-      font-size: 26px;
-      margin-bottom: 0px;
-    }
-    
-    h6.fw-normal {
-      margin-bottom: -6px !important;
-      font-size: 16px !important;
-      margin-top: 15px;
-    }
-    
-    p.small {
-      display: none;
-    }
-    
-    div.card-body {
-      padding: 6px !important;
-    }
-    
-    .asdasdas {
-      margin-top: -38px !important;
-    }
+        * {
+            box-sizing: border-box;
+        }
 
-    h2 {
-      font-size: 20px !important;
-    }
-    
-    .card-body.faq {
-      margin-top: -50px !important;
-    }
-    
-    .color-cyan {
-      color: var(--default-color);
-    }
-    
-    .container_lazy .asdasdas h2:before {
-      background: var(--default-color);
-    }
-    
-    .container_lazy .color-cyan {
-      color: var(--default-color);
-    }
+        body {
+            margin: 0;
+            background: radial-gradient(circle at top right, rgba(74, 222, 128, 0.22), transparent 55%),
+                radial-gradient(circle at bottom left, rgba(248, 113, 113, 0.14), transparent 60%),
+                var(--bg);
+            font-family: "Space Grotesk", sans-serif;
+            color: var(--text);
+            display: flex;
+            justify-content: center;
+        }
 
-    /* ===========================
-       BOTÃO — hover como padrão visual (sem aumentar tamanho)
-       + microinterações suaves
-       =========================== */
-    .super-botao {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    
-      width: 100%;
-      min-width: 280px;
-      margin: 10px auto !important;
-    
-      background: #ffffff;
-      color: #000000 !important;
-      padding: 12px 24px !important;
-      border-radius: 12px;
-      border: none;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      text-decoration: none !important;
-      cursor: pointer;
+        .container {
+            width: min(520px, 100%);
+            padding: clamp(22px, 6vw, 36px) clamp(18px, 7vw, 38px) 72px;
+            display: flex;
+            flex-direction: column;
+            gap: 44px;
+        }
 
-      /* Visual “hover” tornado padrão (sombra mais presente, ícone já deslocado via regra do ícone) */
-      box-shadow: 0 6px 16px rgba(0,0,0,.12) !important;
-      transform: none !important;
-    
-      transition: all .3s ease;
-      overflow: hidden;                 /* necessário pro ripple */
-      will-change: box-shadow, transform;
-    
-      /* Microinteração 1: sombra “respirando” bem de leve */
-      animation: softPulseShadow 1.6s ease-in-out infinite;
-    }
-    
-    @keyframes softPulseShadow {
-      0%, 100% { box-shadow: 0 6px 16px rgba(0,0,0,.12) }
-      50%      { box-shadow: 0 10px 22px rgba(0,0,0,.16) }
-    }
-    
-    /* Hover/focus: mantém o mesmo “feeling” e dá um lift sutil (não altera tamanho) */
-    .super-botao:hover,
-    .super-botao:focus {
-      box-shadow: 0 2px 14px rgba(0,0,0,.2) !important;
-      transform: translateY(-4px) !important; /* levanta um tiquinho (sem mudar largura/altura) */
-    }
-    
-    /* Active: sem “afundar”, mantém o layout de hover */
-    .super-botao:active {
-      box-shadow: 0 6px 16px rgba(0,0,0,.2) !important;
-      transform: translateY(-4px) !important;
-      transition: all .1s ease !important;
-    }
+        header {
+            display: grid;
+            gap: 18px;
+        }
 
-    /* Ícone — já começa deslocado (mesmo look do hover) + Microinteração 2: “nudge” */
-    .super-botao .super-botao-icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform .3s ease;
-      transform: translateX(8px) !important;
-    
-      /* animação de empurrãozinho de tempos em tempos */
-      animation: nudge 2.8s ease-in-out infinite 1.2s;
-      will-change: transform;
-    }
-    
-    @keyframes nudge {
-      0%, 70%, 100% { transform: translateX(8px) }
-      80%           { transform: translateX(14px) }
-      90%           { transform: translateX(6px) }
-    }
-    
-    .super-botao .super-botao-icon .material-symbols-outlined {
-      font-size: 26px;
-      color: #000000;
-    }
-    
-    /* Em hover/focus não muda (mantém o padrão permanente) */
-    .super-botao:hover .super-botao-icon,
-    .super-botao:focus .super-botao-icon {
-      transform: translateX(8px) !important;
-    }
+        .hero-headline {
+            display: grid;
+            gap: 12px;
+        }
 
-    /* Texto do botão */
-    .super-botao .super-botao-text {
-      font-family: 'Inter', sans-serif;
-      font-weight: 700;
-      line-height: 1.1;
-      font-size: clamp(14px, 2.8vw, 18px);
-      color: #000000;
-    }
-    
-    /* Microinteração 3: ripple suave no clique (sem JS) */
-    .super-botao::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      pointer-events: none;
-    
-      /* fallback do ripple (rgba) + usa var custom que podemos trocar por color-mix quando suportado) */
-      --btn-ripple: rgba(15, 163, 107, .18);
-      background: radial-gradient(circle at center, var(--btn-ripple) 0%, transparent 60%);
-      transform: scale(0);
-      opacity: 0;
-      transition: transform .35s ease, opacity .35s ease;
-    }
-    
-    .super-botao:active::after {
-      transform: scale(1.2);
-      opacity: 1;
-      transition: transform .08s ease, opacity .20s ease;
-    }
+        .hero-headline small {
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            font-weight: 600;
+            color: rgba(248, 250, 252, 0.56);
+        }
 
-    /* Se o navegador suportar color-mix/oklab, usa a cor base como ripple automaticamente */
-    @supports (color: oklab(0% 0 0)) {
-      .super-botao::after {
-        --btn-ripple: color-mix(in oklab, var(--default-color) 26%, transparent);
-      }
-    }
-    
-    /* Acessibilidade: foco visível sem “pular” layout */
-    .super-botao:focus-visible {
-      outline: 2px solid var(--default-color);
-      outline-offset: 2px;
-    }
-    
-    /* Usuários com redução de movimento */
-    @media (prefers-reduced-motion: reduce) {
-      .super-botao,
-      .super-botao .super-botao-icon {
-        animation: none !important;
-      }
-      .super-botao,
-      .super-botao::after {
-        transition: none !important;
-      }
-    }
-    
-    /* ===== Sublinhado contínuo, centrado e mais “premium” ===== */
-h6.fw-normal.text-center{
-  position: relative;
-  display: block;                 /* ocupa a linha toda */
-  width: max-content;             /* largura exatamente do texto */
-  margin: 0 auto 10px;            /* centraliza no container */
-  padding-bottom: 1px;           /* espaço pro underline */
-  text-align: center;             /* garante centralização do texto */
-}
+        .hero-headline h1 {
+            margin: 0;
+            font-size: clamp(1.65rem, 6.8vw, 2.45rem);
+            line-height: 1.05;
+        }
 
-/* linha base suave (estática) — dá “corpo” ao underline */
-h6.fw-normal.text-center::after{
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -4px;
-  transform: translateX(-50%);
-  width: 82%;                     /* ajuste fino do comprimento */
-  height: 2px;
-  border-radius: 2px;
-  background: linear-gradient(90deg,
-    transparent 0%,
-    rgba(0,0,0,.06) 12%,
-    var(--default-color) 50%,
-    rgba(0,0,0,.06) 88%,
-    transparent 100%);
-  opacity: .55;
-}
+        .ad-slot {
+            background: var(--surface);
+            border: 1px dashed rgba(74, 222, 128, 0.35);
+            border-radius: 24px;
+            min-height: 100px;
+            display: grid;
+            place-items: center;
+            padding: 18px;
+            text-align: center;
+        }
 
-/* cápsula animada no centro (expande e “brilha” continuamente) */
-h6.fw-normal.text-center::before{
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -4px;
-  transform: translateX(-50%) scaleX(.35);
-  transform-origin: center;
-  width: 72%;
-  height: 2px;
-  border-radius: 2px;
+        .ad-slot span {
+            font-size: 0.78rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: rgba(248, 250, 252, 0.4);
+        }
 
-  /* fallback de cor + degrade com brilho central */
-  --u-line: rgba(15,163,107,.85);
-  background: linear-gradient(90deg,
-    transparent 0%,
-    var(--u-line) 35%,
-    #fff 50%,
-    var(--u-line) 65%,
-    transparent 100%);
-  background-size: 200% 100%;
+        .alert-card {
+            display: grid;
+            gap: 10px;
+            background: rgba(248, 113, 113, 0.12);
+            border: 1px solid rgba(248, 113, 113, 0.28);
+            border-radius: 18px;
+            padding: 14px 18px;
+            font-size: 0.92rem;
+            line-height: 1.45;
+            color: var(--alert);
+            font-weight: 600;
+        }
 
-  /* 1) pulsa largura (centro)  2) brilho corre em loop */
-  animation: uWidthPulse 3.6s ease-in-out infinite,
-             uShimmer    3.6s linear       infinite;
-  opacity: .95;
-}
+        .hero-subtext {
+            color: var(--text-soft);
+            font-size: 1rem;
+            margin: -4px 0 0;
+            line-height: 1.55;
+        }
 
-/* usa color-mix quando disponível pra casar com sua cor-base */
-@supports (color: oklab(0% 0 0)){
-  h6.fw-normal.text-center::before{
-    --u-line: color-mix(in oklab, var(--default-color) 90%, black 10%);
-  }
-}
+        .cta-grid {
+            display: grid;
+            gap: 12px;
+            margin-top: 8px;
+        }
 
-/* pulsa do centro sem “trancos” */
-@keyframes uWidthPulse{
-  0%,100% { transform: translateX(-50%) scaleX(.35); opacity: .9; }
-  50%     { transform: translateX(-50%) scaleX(1);    opacity: 1;  }
-}
+        .cta {
+            text-decoration: none;
+            border-radius: 16px;
+            padding: 17px;
+            text-align: center;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
 
-/* brilho deslizando continuamente */
-@keyframes uShimmer{
-  0%   { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
-}
+        .cta.primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+            color: #052e16;
+            box-shadow: 0 18px 32px rgba(34, 197, 94, 0.25);
+        }
 
-/* movimento reduzido: mantém underline fixo e legível */
-@media (prefers-reduced-motion: reduce){
-  h6.fw-normal.text-center::before{
-    animation: none !important;
-    transform: translateX(-50%) scaleX(1);
-    background-position: 0 0;
-  }
-}
+        .cta.secondary {
+            background: rgba(248, 250, 252, 0.08);
+            border: 1px solid rgba(248, 250, 252, 0.18);
+            color: var(--text);
+        }
 
+        .cta:active {
+            transform: scale(0.97);
+        }
 
-    
+        .progress-bar {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            font-size: 0.78rem;
+            color: rgba(248, 250, 252, 0.48);
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        section {
+            background: var(--surface-strong);
+            border-radius: 28px;
+            border: 1px solid var(--border);
+            padding: 24px 22px 30px;
+            display: grid;
+            gap: 18px;
+        }
+
+        section h2 {
+            margin: 0;
+            font-size: 1.35rem;
+        }
+
+        section p {
+            margin: 0;
+            color: var(--text-soft);
+            line-height: 1.6;
+            font-size: 0.98rem;
+        }
+
+        .checklist {
+            display: grid;
+            gap: 12px;
+        }
+
+        .checklist-item {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 12px;
+            align-items: center;
+            background: rgba(248, 250, 252, 0.05);
+            border-radius: 18px;
+            padding: 16px;
+        }
+
+        .checklist-item span {
+            width: 26px;
+            height: 26px;
+            border-radius: 8px;
+            background: rgba(74, 222, 128, 0.12);
+            color: var(--accent);
+            display: inline-grid;
+            place-items: center;
+            font-weight: 700;
+        }
+
+        .results-grid {
+            display: grid;
+            gap: 12px;
+        }
+
+        .result-card {
+            background: rgba(248, 250, 252, 0.06);
+            border-radius: 18px;
+            padding: 18px;
+        }
+
+        .result-card strong {
+            color: var(--accent);
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .faq details {
+            background: rgba(248, 250, 252, 0.05);
+            border-radius: 18px;
+            padding: 18px 18px 10px;
+        }
+
+        .faq summary {
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--accent);
+            list-style: none;
+        }
+
+        footer {
+            text-align: center;
+            color: rgba(248, 250, 252, 0.32);
+            font-size: 0.72rem;
+        }
+
+        @media (min-width: 760px) {
+            header {
+                text-align: center;
+            }
+
+            .cta-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
     </style>
-
 </head>
 <body>
-    <div class="container_lazy">
-        <div class="container-full my-5">          
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-8 col-lg-10 col-12 mx-auto">
-                        <h3 class="fw-bold color-cyan text-center">
-                            Your new card
-                        </h3>
-                        <div id="netdinheiro_top"></div>
-                        
-                        <h6 class="fw-normal text-center">
-                            We recommend these cards:
-                        </h6>
+    <div class="container">
+        <header>
+            <div class="hero-headline">
+                <small>Planejamento guiado</small>
+                <h1>Multiplique sua renda extra com rotina enxuta e sem atalhos arriscados</h1>
+            </div>
 
-                        <p class="small text-center mt-1" style='font-size: 9px;'>By: <b>Universo Apps</b></p>
+            <div id="anuncio-hero-modelo3" class="ad-slot" role="complementary" aria-label="Espaço publicitário">
+                <span>Espaço reservado para anúncio dinâmico</span>
+            </div>
+
+            <p class="hero-subtext">Antes de rolar, lembre-se: o anúncio acima não faz parte da nossa proposta. Foque nas ações abaixo e evite distrações.</p>
+
+            <div class="alert-card">
+                Atenção: toque apenas nos botões oficiais. Eles liberam o passo a passo seguro e evitam que você caia em páginas promocionais aleatórias.
+            </div>
+
+            <div class="cta-grid">
+                <a class="cta primary" href="#checklist">Liberar checklist imediato</a>
+                <a class="cta secondary" href="#resultados">Ver resultados dos membros</a>
+            </div>
+
+            <div class="progress-bar">
+                <span>📍 Você está no passo 1 de 3</span>
+                <span>📱 Otimizado para mobile</span>
+            </div>
+        </header>
+
+        <main>
+            <section id="checklist">
+                <h2>Checklist para agir hoje</h2>
+                <p>Aplicação prática direto do celular. Menos rolagem, mais execução consciente.</p>
+                <div class="checklist">
+                    <div class="checklist-item">
+                        <span>1</span>
+                        <div>
+                            <strong>Mapeie o objetivo</strong>
+                            <p>Defina a meta financeira e receba microtarefas diárias que mantêm você longe de distrações pagas.</p>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="row my-3">
-                    <div class="col-lg-6 col-md-9 col-12 mx-auto">
-                        <div class="card border-0 px-2 rounded text-decoration-none">
-                            <div class="card-body">
-                                <a href="https://us.netdinheiro.com.br/chime-visa-debit-card-p2/" class="super-botao">
-                                    <span class="super-botao-text">CREDIT CARD WITH $1,000</span>
-                                    <span class="super-botao-icon">
-                                        <span class="material-symbols-outlined">arrow_circle_right</span>
-                                    </span>
-                                </a>
-                                
-                                <a href="https://us.netdinheiro.com.br/chase-sapphire-preferred-credit-card-new-p2/" class="super-botao">
-                                    <span class="super-botao-text">CREDIT CARD WITH $2,000</span>
-                                    <span class="super-botao-icon">
-                                        <span class="material-symbols-outlined">arrow_circle_right</span>
-                                    </span>
-                                </a>
-                                
-                                <a href="https://us.netdinheiro.com.br/u-s-bank-shield-visa-card-p2/" class="super-botao">
-                                    <span class="super-botao-text">CREDIT CARD WITH $3,000</span>
-                                    <span class="super-botao-icon">
-                                        <span class="material-symbols-outlined">arrow_circle_right</span>
-                                    </span>
-                                </a>
-                            </div>
+                    <div class="checklist-item">
+                        <span>2</span>
+                        <div>
+                            <strong>Ative o gatilho de ação</strong>
+                            <p>Configure lembretes inteligentes pelo WhatsApp que indicam apenas oportunidades validadas.</p>
+                        </div>
+                    </div>
+                    <div class="checklist-item">
+                        <span>3</span>
+                        <div>
+                            <strong>Valide e expanda</strong>
+                            <p>Use nossa planilha inteligente para replicar o que deu certo e multiplicar ganhos semanalmente.</p>
                         </div>
                     </div>
                 </div>
-                
-               <div class="row mt-5" id="secao1">
-              <div class="col-xl-8 col-lg-10 col-12 mx-auto asdasdas" align="justify">
-                <h2>Meet your new card</h2>
-                <p class="roboto mt-3"> Get 0% intro APR for 21 months—make purchases or transfer balances without interest. Take
-                  the first step toward more financial flexibility today. </p>
-                <div class="col-12 col-md-6 mx-auto"> <a href="https://us.netdinheiro.com.br/discover-it-secured-credit-card-p2/"
-                    class="super-botao"> <span class="super-botao-text">SHOW ME ANOTHER</span> <span class="super-botao-icon"> <span
-                        class="material-symbols-outlined">arrow_circle_right</span> </span> </a> </div>
-              </div>
-            </div>
-            <div class="row mt-5" id="faq">
-              <div class="col-lg-8 col-md-9 col-12 mx-auto">
-                <div class="card-body faq">
-                  <ul>
-                    <li> <input type="checkbox" checked> <i></i>
-                      <h2>How long is the 0% intro APR?</h2>
-                      <p>It lasts a full 21 months, giving you extended time to manage balances without interest charges.</p>
-                    </li>
-                    <li> <input type="checkbox"> <i></i>
-                      <h2>Is there an annual fee?</h2>
-                      <p>No—there’s no annual fee. We aim to keep your costs low while helping you reach your money goals.</p>
-                    </li>
-                    <li> <input type="checkbox"> <i></i>
-                      <h2>What’s included with cell phone protection?</h2>
-                      <p>Coverage can help with accidental damage to your device, offering added reassurance for everyday use.</p>
-                    </li>
-                    <li> <input type="checkbox"> <i></i>
-                      <h2>How do I apply?</h2>
-                      <p>The process is quick and straightforward. Follow the guided steps to submit your application right away.
-                      </p>
-                    </li>
-                    <li> <input type="checkbox"> <i></i>
-                      <h2>How can I get personalized offers?</h2>
-                      <p>Access tailored deals based on your spending habits to maximize value on every purchase.</p>
-                    </li>
-                  </ul>
+            </section>
+
+            <section id="resultados">
+                <h2>Resultados na vida real</h2>
+                <p>Histórias de quem aplicou o método exatamente como descrito, sem cliques em anúncios externos.</p>
+                <div class="results-grid">
+                    <article class="result-card">
+                        <strong>Rafael · São Paulo</strong>
+                        <p>“Cresci 3x minha renda complementar em 28 dias. A sequência guiada me protegeu dos atalhos duvidosos.”</p>
+                    </article>
+                    <article class="result-card">
+                        <strong>Thaís · Curitiba</strong>
+                        <p>“Consegui resultados dedicando 25 minutos por dia. O painel é direto ao ponto e não abre espaço para distrações.”</p>
+                    </article>
+                    <article class="result-card">
+                        <strong>Douglas · Brasília</strong>
+                        <p>“A planilha inteligente indica exatamente o que replicar. Parei de clicar em anúncios e foquei em ações concretas.”</p>
+                    </article>
                 </div>
-              </div>
-            </div>
-            <div class="row mt-5" id="secao2">
-              <div class="col-xl-8 col-lg-10 col-12 mx-auto asdasdas" align="justify">
-                <h2>Take control of your finances—apply today and feel the difference</h2>
-                <p class="roboto mt-3"> Unlock more flexibility and confidence with this card. Start your application now and
-                  experience the benefits for yourself. </p>
-                <div class="col-12 col-md-6 mx-auto"> <a href="https://us.netdinheiro.com.br/wells-fargo-active-cash-card-p2/"
-                    class="super-botao"> <span class="super-botao-text">LEARN MORE ABOUT THE CARD</span> <span
-                      class="super-botao-icon"> <span class="material-symbols-outlined">arrow_circle_right</span> </span> </a>
+            </section>
+
+            <section id="faq">
+                <h2>Dúvidas rápidas</h2>
+                <div class="faq">
+                    <details>
+                        <summary>Preciso de computador?</summary>
+                        <p>Não. Toda a jornada foi desenhada para ser executada do celular, com telas otimizadas e lembretes.</p>
+                    </details>
+                    <details>
+                        <summary>O que recebo ao me inscrever?</summary>
+                        <p>Acesso imediato ao checklist, planilha inteligente, comunidade e plantões de suporte.</p>
+                    </details>
+                    <details>
+                        <summary>Existe garantia?</summary>
+                        <p>Sim. Se em 7 dias você não sentir avanço, devolvemos 100% do valor investido.</p>
+                    </details>
                 </div>
-              </div>
-            </div>
-            </div>
-        </div>
+            </section>
+        </main>
+
+        <footer>
+            © 2024 Ação Imediata · Todos os direitos reservados.
+        </footer>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // FAQ Interactivity
-            const faqItems = document.querySelectorAll('.faq ul li');
-            
-            faqItems.forEach(function(item) {
-                const checkbox = item.querySelector('input[type="checkbox"]');
-                const title = item.querySelector('h2');
-                const icon = item.querySelector('i');
-                
-                [title, icon].forEach(function(element) {
-                    if (element) {
-                        element.addEventListener('click', function() {
-                            checkbox.checked = !checkbox.checked;
-                        });
-                    }
-                });
-            });
-            
-            // Smooth scroll for anchor links
-            const anchorLinks = document.querySelectorAll('a[href^="#"]');
-            anchorLinks.forEach(function(link) {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href').substring(1);
-                    const targetElement = document.getElementById(targetId);
-                    
-                    if (targetElement) {
-                        targetElement.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
-
-            // --- INÍCIO DO CÓDIGO DE LÓGICA DA URL ---
-
-            /**
-             * Pega o parâmetro 'refer' da URL e extrai um nome de marca limpo.
-             */
-            function getReferBrand() {
-                const params = new URLSearchParams(window.location.search);
-                let raw = params.get('refer');
-
-                if (!raw) return null;
-                raw = raw.trim();
-
-                let host;
-                if (raw.toLowerCase().startsWith('http://') || raw.toLowerCase().startsWith('https://')) {
-                    try {
-                        host = new URL(raw).hostname;
-                    } catch (e) {
-                        host = raw.replace(/^(https?:\/\/)/, '');
-                    }
-                } else {
-                    host = raw.replace(/[^a-z0-9.-]/gi, '');
-                }
-
-                if (!host) return null;
-
-                host = host.replace(/^www\./i, '');
-                let labels = host.toLowerCase().split('.');
-                const tld_2parts = ['com.br', 'net.br', 'org.br'];
-                const tld_1part = ['com', 'net', 'org', 'br'];
-
-                if (labels.length >= 2) {
-                    const end2 = labels[labels.length - 2] + '.' + labels[labels.length - 1];
-                    if (tld_2parts.includes(end2)) {
-                        labels.pop();
-                        labels.pop();
-                    } else if (tld_1part.includes(labels[labels.length - 1])) {
-                        labels.pop();
-                    }
-                } else if (labels.length === 1 && tld_1part.includes(labels[0])) {
-                    labels.pop();
-                }
-
-                if (labels.length === 0) return null;
-                labels[labels.length - 1] = labels[labels.length - 1].replace(/\d+$/, '');
-                labels = labels.filter(l => l !== '');
-                if (labels.length === 0) return null;
-                let brand = labels.join('.').replace(/[^a-z0-9.-]/gi, '');
-                return brand || null;
-            }
-
-            const brandName = getReferBrand();
-
-            if (brandName) {
-                // Encontra o elemento h6 alvo
-                const targetElement = document.querySelector('h6.fw-normal.text-center');
-                
-                if (targetElement) {
-                    // Capitaliza a primeira letra do nome da marca
-                    const capitalizedBrandName = brandName.charAt(0).toUpperCase() + brandName.slice(1);
-
-                    // Cria o elemento <b> para a marca de forma segura
-                    const brandElement = document.createElement('b');
-                    brandElement.textContent = capitalizedBrandName;
-                    
-                    // Pega o texto que já existe no h6
-                    const existingText = targetElement.textContent;
-                    
-                    // Limpa o h6 e insere o nome da marca antes do texto original
-                    targetElement.innerHTML = ''; // Limpa o conteúdo
-                    targetElement.appendChild(brandElement);
-                    targetElement.append(` ${existingText}`); // Adiciona o texto original depois
-                }
-            }
-
-            // --- FIM DO CÓDIGO DE LÓGICA DA URL ---
-        });
-    </script>
 </body>
 </html>
