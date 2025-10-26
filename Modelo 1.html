@@ -20,6 +20,8 @@
     <style>
         :root {
             --default-color: #0fa36b;
+            --hero-dark: #041c14;
+            --hero-light: #18c488;
         }
         
         h1.entry-title {
@@ -237,6 +239,157 @@
             font-size: 0.5em !important;
           }
         }
+
+        .hero-mobile {
+          position: relative;
+          background: linear-gradient(160deg, var(--hero-light) 0%, var(--hero-dark) 100%);
+          border-radius: 24px;
+          padding: 28px 20px 32px;
+          color: #ffffff;
+          box-shadow: 0 12px 40px rgba(4, 28, 20, 0.25);
+          overflow: hidden;
+        }
+
+        .hero-mobile::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.18), transparent 50%);
+          pointer-events: none;
+        }
+
+        .hero-tag {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          font-size: 12px;
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
+          background: rgba(4, 28, 20, 0.45);
+          border: 1px solid rgba(255, 255, 255, 0.18);
+          border-radius: 999px;
+          padding: 6px 14px;
+          margin-bottom: 14px;
+          position: relative;
+          z-index: 1;
+        }
+
+        .hero-mobile h3 {
+          font-size: 26px;
+          margin: 0 0 12px;
+          line-height: 1.2;
+          position: relative;
+          z-index: 1;
+          color: #ffffff;
+        }
+
+        .hero-mobile h6 {
+          font-size: 16px !important;
+          margin: 16px 0 0;
+          color: rgba(255, 255, 255, 0.82);
+          position: relative;
+          z-index: 1;
+        }
+
+        .ad-area {
+          margin: 10px auto 0;
+          border-radius: 18px;
+          padding: 12px 14px 14px;
+          background: rgba(4, 28, 20, 0.35);
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          display: grid;
+          gap: 10px;
+          position: relative;
+          z-index: 1;
+        }
+
+        .ad-label {
+          font-size: 11px;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+          font-weight: 600;
+          color: rgba(255, 255, 255, 0.62);
+        }
+
+        .ad-warning-text {
+          font-size: 14px;
+          font-weight: 600;
+          background: rgba(255, 218, 109, 0.18);
+          border-radius: 12px;
+          padding: 10px 12px;
+          color: #fffbec;
+          border: 1px solid rgba(255, 218, 109, 0.32);
+        }
+
+        .hero-benefits {
+          list-style: none;
+          margin: 18px 0 16px;
+          padding: 0;
+          display: grid;
+          gap: 8px;
+          position: relative;
+          z-index: 1;
+        }
+
+        .hero-benefits li {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          padding: 10px 12px;
+          border-radius: 12px;
+          background: rgba(255, 255, 255, 0.12);
+          color: #ffffff;
+          font-size: 14px;
+          line-height: 1.4;
+        }
+
+        .hero-benefits li span {
+          display: inline-flex;
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          align-items: center;
+          justify-content: center;
+          background: rgba(255, 255, 255, 0.16);
+          font-size: 18px;
+        }
+
+        .cta-pointer {
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          font-size: 13px;
+          margin: 12px 0 4px;
+          color: rgba(255, 255, 255, 0.86);
+          position: relative;
+          z-index: 1;
+        }
+
+        .hero-buttons {
+          display: grid;
+          gap: 12px;
+          margin-top: 10px;
+          position: relative;
+          z-index: 1;
+        }
+
+        .hero-buttons .super-botao {
+          margin: 0 !important;
+        }
+
+        @media (min-width: 768px) {
+          .hero-mobile {
+            padding: 36px 48px 40px;
+          }
+
+          .hero-benefits {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+
+          .hero-buttons {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+          }
+        }
     </style>
 </head>
 <body>
@@ -245,36 +398,50 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xl-8 col-lg-10 col-12 mx-auto">
-                        <h3 class="fw-bold color-cyan text-center">
-                            Your new card
-                        </h3>
-                        <div id="uscreativepulse23_top"></div>
-                        
-                        <h6 class="fw-normal text-center">
-                            , here are ’s card picks for you:
-                        </h6>
-
-                    </div>
-                </div>
-                
-                <div class="row my-3">
-                    <div class="col-lg-6 col-md-9 col-12 mx-auto">
-                        <div class="card border-0 px-2 rounded text-decoration-none">
-                            <div class="card-body">
+                        <section class="hero-mobile text-center">
+                            <span class="hero-tag">
+                                <span class="material-symbols-outlined" style="font-size:16px;">bolt</span>
+                                Ofertas alinhadas ao seu perfil
+                            </span>
+                            <h3 class="fw-bold text-white">
+                                Your new card
+                            </h3>
+                            <div class="ad-area">
+                                <span class="ad-label">Anúncio patrocinado - ignore para seguir</span>
+                                <div id="uscreativepulse23_top" class="ad-slot"></div>
+                                <p class="ad-warning-text">O conteúdo acima é publicidade. Continue para desbloquear cartões confiáveis e evitar cliques acidentais.</p>
+                            </div>
+                            <h6 class="fw-normal text-center">
+                                , here are ’s card picks for you:
+                            </h6>
+                            <ul class="hero-benefits">
+                                <li>
+                                    <span class="material-symbols-outlined">verified</span>
+                                    Aprovação rápida com acompanhamento passo a passo.
+                                </li>
+                                <li>
+                                    <span class="material-symbols-outlined">payments</span>
+                                    Limites iniciais a partir de US$ 1.000 e upgrades frequentes.
+                                </li>
+                                <li>
+                                    <span class="material-symbols-outlined">shield_person</span>
+                                    Recomendado para construir crédito sem taxas escondidas.
+                                </li>
+                            </ul>
+                            <p class="cta-pointer">Escolha um limite e avance com segurança 👇</p>
+                            <div class="hero-buttons">
                                 <a href="https://us.creativepulse23.com/chime-visa-debit-card-online-p2/" class="super-botao">
                                     <span class="super-botao-text">CREDIT CARD WITH $1,000</span>
                                     <span class="super-botao-icon">
                                         <span class="material-symbols-outlined">arrow_circle_right</span>
                                     </span>
                                 </a>
-                                
                                 <a href="https://us.creativepulse23.com/chase-sapphire-preferred-credit-card-p2/" class="super-botao">
                                     <span class="super-botao-text">CREDIT CARD WITH $2,000</span>
                                     <span class="super-botao-icon">
                                         <span class="material-symbols-outlined">arrow_circle_right</span>
                                     </span>
                                 </a>
-                                
                                 <a href="https://us.creativepulse23.com/u-s-bank-shield-visa-card-p2/" class="super-botao">
                                     <span class="super-botao-text">CREDIT CARD WITH $3,000</span>
                                     <span class="super-botao-icon">
@@ -282,7 +449,7 @@
                                     </span>
                                 </a>
                             </div>
-                        </div>
+                        </section>
                     </div>
                 </div>
                 

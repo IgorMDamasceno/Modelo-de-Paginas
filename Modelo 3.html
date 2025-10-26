@@ -19,8 +19,10 @@
     
     <style>
         :root {
-  --default-color: #0fa36b;
-}
+            --default-color: #0fa36b;
+            --hero-dark: #1a1035;
+            --hero-light: #8b5cf6;
+        }
 
     /* ===== Ajustes gerais ===== */
     h1.entry-title {
@@ -298,8 +300,158 @@ h6.fw-normal.text-center::before{
   }
 }
 
+.hero-mobile {
+  position: relative;
+  background: linear-gradient(150deg, var(--hero-light) 0%, var(--hero-dark) 100%);
+  border-radius: 24px;
+  padding: 30px 20px 34px;
+  color: #ffffff;
+  box-shadow: 0 16px 46px rgba(26, 16, 53, 0.35);
+  overflow: hidden;
+}
 
-    
+.hero-mobile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 80% 10%, rgba(255, 255, 255, 0.2), transparent 55%);
+  pointer-events: none;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  padding: 6px 14px;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-mobile h3 {
+  font-size: 26px;
+  margin: 0 0 12px;
+  line-height: 1.2;
+  position: relative;
+  z-index: 1;
+  color: #ffffff;
+}
+
+.hero-mobile h6 {
+  font-size: 16px !important;
+  margin: 16px 0 0;
+  color: rgba(255, 255, 255, 0.88);
+  position: relative;
+  z-index: 1;
+}
+
+.ad-area {
+  margin: 12px auto 0;
+  border-radius: 18px;
+  padding: 14px 16px;
+  background: rgba(31, 19, 66, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  display: grid;
+  gap: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.ad-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.ad-warning-text {
+  font-size: 14px;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+  padding: 10px 12px;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+}
+
+.hero-benefits {
+  list-style: none;
+  margin: 20px 0 18px;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-benefits li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.hero-benefits li span {
+  display: inline-flex;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.24);
+  font-size: 18px;
+}
+
+.cta-pointer {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 13px;
+  margin: 14px 0 6px;
+  color: rgba(255, 255, 255, 0.88);
+  position: relative;
+  z-index: 1;
+}
+
+.hero-buttons {
+  display: grid;
+  gap: 12px;
+  margin-top: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-buttons .super-botao {
+  margin: 0 !important;
+}
+
+@media (min-width: 768px) {
+  .hero-mobile {
+    padding: 40px 48px 46px;
+  }
+
+  .hero-benefits {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero-buttons {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+
     </style>
 
 </head>
@@ -309,37 +461,52 @@ h6.fw-normal.text-center::before{
             <div class="container">
                 <div class="row">
                     <div class="col-xl-8 col-lg-10 col-12 mx-auto">
-                        <h3 class="fw-bold color-cyan text-center">
-                            Your new card
-                        </h3>
-                        <div id="netdinheiro_top"></div>
-                        
-                        <h6 class="fw-normal text-center">
-                            We recommend these cards:
-                        </h6>
-
-                        <p class="small text-center mt-1" style='font-size: 9px;'>By: <b>Universo Apps</b></p>
-                    </div>
-                </div>
-                
-                <div class="row my-3">
-                    <div class="col-lg-6 col-md-9 col-12 mx-auto">
-                        <div class="card border-0 px-2 rounded text-decoration-none">
-                            <div class="card-body">
+                        <section class="hero-mobile text-center">
+                            <span class="hero-tag">
+                                <span class="material-symbols-outlined" style="font-size:16px;">rocket_launch</span>
+                                Passos guiados para aprovação
+                            </span>
+                            <h3 class="fw-bold text-white">
+                                Your new card
+                            </h3>
+                            <div class="ad-area">
+                                <span class="ad-label">Anúncio patrocinado — ignore e siga abaixo</span>
+                                <div id="netdinheiro_top" class="ad-slot"></div>
+                                <p class="ad-warning-text">Essa chamada brilhante é um anúncio. Pule sem clicar e selecione uma das opções verificadas para continuar.</p>
+                            </div>
+                            <h6 class="fw-normal text-center">
+                                We recommend these cards:
+                            </h6>
+                            <ul class="hero-benefits">
+                                <li>
+                                    <span class="material-symbols-outlined">task_alt</span>
+                                    Checklist rápido com o que você precisa ter em mãos.
+                                </li>
+                                <li>
+                                    <span class="material-symbols-outlined">chat</span>
+                                    Suporte humano por chat durante o preenchimento.
+                                </li>
+                                <li>
+                                    <span class="material-symbols-outlined">credit_score</span>
+                                    Cartões indicados para aumentar seu score mês a mês.
+                                </li>
+                            </ul>
+                            <p class="cta-pointer">Escolha sua melhor opção e avance 👇</p>
+                            <div class="hero-buttons">
                                 <a href="https://us.netdinheiro.com.br/chime-visa-debit-card-p2/" class="super-botao">
                                     <span class="super-botao-text">CREDIT CARD WITH $1,000</span>
                                     <span class="super-botao-icon">
                                         <span class="material-symbols-outlined">arrow_circle_right</span>
                                     </span>
                                 </a>
-                                
+
                                 <a href="https://us.netdinheiro.com.br/chase-sapphire-preferred-credit-card-new-p2/" class="super-botao">
                                     <span class="super-botao-text">CREDIT CARD WITH $2,000</span>
                                     <span class="super-botao-icon">
                                         <span class="material-symbols-outlined">arrow_circle_right</span>
                                     </span>
                                 </a>
-                                
+
                                 <a href="https://us.netdinheiro.com.br/u-s-bank-shield-visa-card-p2/" class="super-botao">
                                     <span class="super-botao-text">CREDIT CARD WITH $3,000</span>
                                     <span class="super-botao-icon">
@@ -347,7 +514,8 @@ h6.fw-normal.text-center::before{
                                     </span>
                                 </a>
                             </div>
-                        </div>
+                            <p class="small text-center mt-3 mb-0" style='font-size: 9px;'>By: <b>Universo Apps</b></p>
+                        </section>
                     </div>
                 </div>
                 
